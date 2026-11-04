@@ -1,0 +1,29 @@
+/*
+author: JJMorton
+date: 2026-11-04
+CSS snippet to hide the tabs in the top bar, and highlight the header bar of the
+currently focussed pane.
+*/
+
+.mod-root .workspace-tabs.mod-top .workspace-tab-header-container-inner,
+.mod-root .workspace-tabs.mod-top .workspace-tab-header-new-tab,
+.mod-root .workspace-tabs.mod-top .workspace-tab-header-tab-list
+{
+	display: none;
+}
+
+/* Hide tab bars not at the top */
+.mod-root .workspace-tabs:not(.mod-top) > .workspace-tab-header-container {
+	display: none;
+}
+
+/* Make the tab header narrower */
+.mod-root .view-header {
+	height: 35px;
+}
+
+/* Highlight the active panel */
+.mod-root .mod-active .view-header {
+	background-color: var(--color-base-20) !important;
+	border-bottom: var(--tab-outline-width) solid var(--tab-outline-color);
+}
