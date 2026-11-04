@@ -1,0 +1,61 @@
+/*
+author: JJMorton
+date: 2026-09-03
+CSS Snippet to make tables occupy the full width of the page, while keeping text
+to a readable length.
+
+Here's how this hack works:
+  1. Modify the line width to be as wide as we want the tables to be
+  2. Set the width of everything OTHER than tables to be the original line width
+  3. Centre-align everything within the widened view
+*/
+
+
+/* Remember the file line width set in Obsidian */
+body {
+	--file-line-width-old: var(--file-line-width);
+}
+
+/* Modify file line width to expand content to the full width */
+.cm-sizer {
+	--file-line-width: 100%;
+}
+
+/* Make the content occupy the full width */
+.cm-contentContainer {
+	width: 100%;
+}
+
+/* Limit width of all containers, except the tables */
+.cm-sizer > *:not(.cm-contentContainer),
+.cm-content > *:not(.cm-table-widget):not(.cm-lang-mermaid) {
+	width: var(--file-line-width) !important;
+	max-width: var(--file-line-width-old) !important;
+}
+
+/* Centre align all the containers */
+.cm-sizer > * {
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Centre align everything within the inner content container */
+.cm-content {
+	display: flex !important;
+	align-items: center !important;
+	flex-direction: column !important;
+}
+
+/* Tweak: Equalise empty space around containers, removes small horiz. offset */
+.cm-sizer, .cm-contentContainer {
+	justify-content: space-around;
+}
+
+/* Tweak: Make sure narrow tables remain left-aligned with the text */
+.cm-content > .cm-table-widget,
+.cm-content > .cm-lang-mermaid {
+	min-width: var(--file-line-width-old);
+	box-sizing: content-box;
+}
