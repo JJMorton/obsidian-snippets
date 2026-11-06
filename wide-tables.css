@@ -48,6 +48,11 @@ body {
 	flex-direction: column !important;
 }
 
+/* Tweak: Prevent the table cells from shrinking while editing */
+.cm-table-widget .cm-editor .cm-content > * {
+	max-width: none !important;
+}
+
 /* Tweak: Equalise empty space around containers, removes small horiz. offset */
 .cm-sizer, .cm-contentContainer {
 	justify-content: space-around;
@@ -56,6 +61,6 @@ body {
 /* Tweak: Make sure narrow tables remain left-aligned with the text */
 .cm-content > .cm-table-widget,
 .cm-content > .cm-lang-mermaid {
-	min-width: var(--file-line-width-old);
+	min-width: min(var(--file-line-width-old), var(--file-line-width));
 	box-sizing: content-box;
 }
