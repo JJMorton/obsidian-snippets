@@ -1,0 +1,8 @@
+/**
+ * Slightly reduce the padding on items in the left navigation pane
+ */
+
+.nav-files-container {
+	padding-left: 4px;
+	padding-right: 4px;
+}
