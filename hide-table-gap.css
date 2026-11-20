@@ -1,0 +1,16 @@
+/*
+author: JJMorton
+date: 2026-11-20
+CSS Snippet to remove the gap above and below tables.
+*/
+
+
+.cm-line:has(+ .cm-embed-block.cm-table-widget) br {
+	display: none;
+}
+
+.el-table > table,
+.cm-embed-block.cm-table-widget.markdown-rendered {
+    margin: 0;
+    padding: 0;
+}
