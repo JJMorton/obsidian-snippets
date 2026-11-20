@@ -11,6 +11,6 @@ CSS Snippet to remove the gap above and below tables.
 
 .el-table > table,
 .cm-embed-block.cm-table-widget.markdown-rendered {
-    margin: 0;
-    padding: 0;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
